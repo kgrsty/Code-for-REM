@@ -14,5 +14,6 @@ culture-level info
 }
 \description{
 Reads a Cerner microbiology Detailed Listing
-extracts and exports culture info (specimen list) and sleeve date (isolate list).
+extracts and exports culture info (specimen list) and sleeve date (isolate list). 
+Can also generate excel spreadsheets containing Abx, AST and Interpretations as well as list of organisms by Accession number
 }
