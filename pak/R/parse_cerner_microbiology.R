@@ -9,7 +9,6 @@
 #'
 #' @export
 
-
 parse_cerner_microbiology <- function(file){
 
   pages <- readLines(file)
@@ -18,21 +17,28 @@ parse_cerner_microbiology <- function(file){
 
   culture_blocks <- split_culture_reports(pages)
 
-  cultures <- purrr::map_dfr(
+  cultures_df <- purrr::map_dfr(
   culture_blocks,
   get_culture_info
 )
   sleeve_df <- purrr::map_dfr(
     culture_blocks,
-    parse_cerner_sleeve
+    parse_cerner_culture
   )
 
-  cultures <- dplyr::bind_cols(
-    cultures,
-    sleeve_df
+  organisms_df <- purrr::map_dfr(
+    culture_blocks,
+    parse_org
   )
 
-  cultures
+
+  list(
+    cultures = cultures_df,
+    sleeves = sleeve_df,
+    organisms = organisms_df
+  )
 }
+
+
 
 
