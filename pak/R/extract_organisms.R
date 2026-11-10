@@ -22,9 +22,6 @@ orgs <- unique(
   orgs[!is.na(orgs) & orgs != ""]
 )
 
-  tibble::tibble(
-    Organism = orgs
-  )
 }
 
 
