@@ -16,45 +16,42 @@ devtools::document("U:/Coding Stuff/Cerner/pak")
 #list functions
 list.files("R")
 
-#generate Specimen and Isolate collection list
-#contains all fields (Name, Accession, Procedure, Source, Collect_date, Sleeve_date)
-cultures_df <- parse_cerner_microbiology( "U:/Coding Stuff/REM/detailed_listing/preview_10_22_2026_14_28_25.tmp.DAT")
+#generate dataframes
 
+#contains all dataframes
+results<- parse_cerner_microbiology( "U:/Coding Stuff/REM/detailed_listing/preview_10_22_2026_14_28_25.tmp.DAT")
+
+#accession, name, source, procdure, collect_date
+cultures_df <- results$cultures
 #arrange collect_date from earliest to latest
 #remove Sleeve_date column
 #add row ID for easier markups during collection
 cultures_final <- cultures_df %>%
   arrange(Collect_Date) %>%
-  select(-Sleeve_date) %>%
   mutate(row_id = row_number(), .before = 1)
 
 #write excel file to collection list folder
 write_xlsx(cultures_final, "U:/Coding Stuff/REM/detailed_listing/Collection_Lists/Specimen_List.xlsx")
 
-#generate Isolate Colllection List with just accession and sleeve_date
-Sleeve_df <- cultures_df %>%
-select(Accession, Sleeve_date)
 
+#returns accession, name, date of isolate sleeve 
+sleeve_df <- results$sleeves
 # Extract sleeve collection date/time and convert to sleeve date
 # Reports contain collection date/time.
 # Sleeve placement date is defined as one day prior to extracted date
-Sleeve_df <- Sleeve_df %>%
+sleeve_df <- sleeve_df %>%
   mutate(Sleeve_date = as_date(mdy_hm(Sleeve_date)) - days(1),
     Sleeve_date = format(Sleeve_date, "%m/%d/%Y")) 
-
-#add row id column for easier markups during collection
-Sleeve_final <- Sleeve_df %>%
+#add row ID for easier markups during collection
+sleeve_final <- sleeve_df %>%
 arrange(Sleeve_date) %>%
  mutate(row_id = row_number(), .before = 1)
 
-
 #write excel file to collection list folder
-write_xlsx(Sleeve_final, "U:/Coding Stuff/REM/detailed_listing/Collection_Lists/Isolate_List.xlsx")
+write_xlsx(sleeve_final, "U:/Coding Stuff/REM/detailed_listing/Collection_Lists/Isolate_List.xlsx")
 
+#returns accession, name, organism(s)
+organisms_df <- results$organisms
 
-#Organisms dataframe (one org per row), Accession, patient_name
-orgs_df <- parse_cerner_organisms("U:/Coding Stuff/REM/detailed_listing/preview_10_22_2026_14_28_25.tmp.DAT")
-
-
-#subjects with multiple organisms spread across columns
-org_columns <- org_cols("U:/Coding Stuff/REM/detailed_listing/preview_10_22_2026_14_28_25.tmp.DAT")
+#patients with multiple organisms spread across columns
+org_columns <- org_cols("U:/Coding Stuff/REM/detailed_listing/preview_10_22_2026_14_28_25.tmp.DAT
