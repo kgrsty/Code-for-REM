@@ -1,0 +1,57 @@
+Raw Cerner Text Report
+          │
+          ▼
+split_culture_reports()
+          │
+          ▼
+ ┌─────────────────────┐
+ │ Culture Block #1    │
+ │ Culture Block #2    │
+ │ Culture Block #3    │
+ └─────────────────────┘
+          │
+          ▼
+get_culture_info()
+          │
+          ├── Accession
+          ├── Patient_name
+          ├── Collection_date
+          └── Other metadata
+          │
+          ▼
+get_org_blocks()
+          │
+          ▼
+ ┌─────────────────────┐
+ │ Organism Block #1   │
+ │ Organism Block #2   │
+ │ Organism Block #3   │
+ └─────────────────────┘
+          │
+          ├─────────────► parse_org_block()
+          │                    │
+          │                    ▼
+          │              Organism Dataset
+          │
+          └─────────────► parse_abx_block()
+                               │
+                               ▼
+                        Susceptibility Dataset
+###########################################################################################
+Function Dependency Map
+parse_cerner_microbiology()
+│
+├── split_culture_reports()
+│
+├── get_culture_info()
+│
+├── parse_cerner_organisms()
+│   └── extract_organisms()
+│
+├── parse_cerner_abx()
+│   ├── get_org_blocks()
+│   ├── clean_org_block()
+│   ├── get_org_name()
+│   └── parse_abx_block()
+│
+└── parse_cerner_sleeve()
