@@ -1,7 +1,15 @@
-parse_cerner_sleeve <- function(block) {
+#' @export
 
-  tibble::tibble(
-    Sleeve_date = parse_sleeve_dates(block)
+parse_cerner_sleeve <- function(file) {
+
+  pages <- readLines(file)
+
+  culture_blocks <- split_culture_reports(pages)
+
+    purrr::map_dfr(
+    culture_blocks,
+    parse_cerner_culture
   )
-
+ 
 }
+  
