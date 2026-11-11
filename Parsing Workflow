@@ -1,0 +1,16 @@
+1. Report-Level Processing-Each culture block represents a single accession and serves as the primary unit of parsing.
+pages <- readLines(file)
+culture_blocks <- split_culture_reports(pages)
+
+2. Culture-Level Metadata Extraction- Name, Accession, Procedure, Source, Collect_Date
+meta <- get_culture_info(block)
+
+3. Organism Segmentation-Each culture is split into separate organism sections.
+Each organism block contains both the organism identification and its associated susceptibility panel.
+org_blocks <- get_org_blocks(block)
+
+4. Organism Parsing-Organism names are extracted independently of susceptibility data.
+parse_org_block()
+
+5. Antibiotic Susceptibility Parsing-Susceptibility panels are parsed from each organism block.
+parse_abx_block()
