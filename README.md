@@ -43,3 +43,19 @@ Example Workflow:
 -cultures_df <- results$cultures
 -organisms_df <- results$organisms
 -sleeve_df <- results$sleeves
+
+Known Limitations:
+-Formatting may differ across Cerner versions.
+-Rare organisms with unusual naming conventions may require additional parsing rules.
+-Some multi-page susceptibility panels may contain repeated header information that must be filtered during parsing.
+-Reports with substantial customization may require local modifications.
+
+Future Development:
+Planned Enhancements:
+-Automated quality checks
+-Support for Beaker report layouts
+
+Author:
+Kimberly Grasty, MS, MPH
+Research Specialist
+University of Pennsylvania / Penn Medicine
