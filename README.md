@@ -18,5 +18,28 @@ Features:
 -Preserves accession and patient identifiers
 -Returns tidy data frames suitable for downstream analysis
 
-Expected Input
+Expected Input:
 Input files should be detailed line listing Cerner microbiology reports exported as plain text (.txt).
+
+Main Functions:
+-Parse Cerner Microbiology
+parse_cerner_microbiology(file): Returns a list of structured datasets extracted from a Cerner report.
+
+-Parse Organisms
+parse_cerner_organisms(file): Extracts organism-level findings.
+org_df <- parse_cerner_organisms(file)
+
+-Parse Antibiotics
+parse_cerner_abx(file): Extracts antimicrobial susceptibility testing results.
+abx_df <- parse_cerner_abx(file)
+
+-Parse Sleeve Data
+parse_cerner_sleeve(file): Extracts procedure and date-related information from sleeve reports.
+sleeve_df <- parse_cerner_sleeve(file)
+
+Example Workflow:
+-install packages
+-parse_cerner_microbiology -> results (list of dataframes)
+-cultures_df <- results$cultures
+-organisms_df <- results$organisms
+-sleeve_df <- results$sleeves
