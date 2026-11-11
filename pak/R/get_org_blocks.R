@@ -1,3 +1,5 @@
+#' @export
+
 get_org_blocks <- function(block){
 
 # Find each line containing an organism header
