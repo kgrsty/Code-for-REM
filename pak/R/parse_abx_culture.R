@@ -1,3 +1,5 @@
+#' @export
+
 parse_abx_culture <- function(block){
 
 # Extract accession and patient metadata
@@ -14,7 +16,7 @@ parse_abx_culture <- function(block){
 # Parse susceptibility data for each organism
   purrr::map_dfr(
     org_blocks,
-    ~ parse_org_block(
+    ~ parse_abx_block(
         .x,
         Accession = meta$Accession,
         Patient_name = meta$Patient_name
