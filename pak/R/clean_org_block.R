@@ -1,3 +1,5 @@
+#' @export
+
 clean_org_block <- function (org_block,
                             Accession,
                             Patient_name) 
