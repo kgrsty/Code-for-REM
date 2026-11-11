@@ -23,15 +23,38 @@ Input files should be detailed line listing Cerner microbiology reports exported
 
 Main Functions:
 parse_cerner_microbiology(file): Returns a list of structured datasets extracted from a Cerner report.
+parse_cerner_microbiology()
+│
+├── parse_cerner_organisms()
+├── parse_cerner_abx()
+└── parse_cerner_sleeve()
 
 parse_cerner_organisms(file): Extracts organism-level findings.
-org_df <- parse_cerner_organisms(file)
+readLines()
+  ↓
+split_culture_reports()
+  ↓
+get_culture_info()
+  ↓
+extract_organisms()
+  ↓
+Organism Data Frame
 
 parse_cerner_abx(file): Extracts antimicrobial susceptibility testing results.
-abx_df <- parse_cerner_abx(file)
+readLines()
+  ↓
+split_culture_reports()
+  ↓
+get_culture_info()
+  ↓
+get_org_blocks()
+  ↓
+parse_abx_block()
+  ↓
+Antibiotic Susceptibility Data Frame
 
 parse_cerner_sleeve(file): Extracts procedure and date-related information from sleeve reports.
-sleeve_df <- parse_cerner_sleeve(file)
+
 
 
 
