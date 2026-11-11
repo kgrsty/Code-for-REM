@@ -1,0 +1,23 @@
+flowchart TD
+
+    Report[Text Report]
+
+    Report --> Cultures[split_culture_reports]
+
+    Cultures --> Meta[get_culture_info]
+    Cultures --> Orgs[extract_organisms]
+    Cultures --> Blocks[get_org_blocks]
+
+    Blocks --> Abx[parse_abx_block]
+
+    Meta --> OrgDF[organisms dataframe]
+    Orgs --> OrgDF
+
+    Meta --> AbxDF[abx dataframe]
+    Abx --> AbxDF
+
+    Meta --> SleeveDF[sleeve dataframe]
+
+    OrgDF --> Final[parse_cerner_microbiology]
+    AbxDF --> Final
+    SleeveDF --> Final
