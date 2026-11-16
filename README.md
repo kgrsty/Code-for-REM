@@ -1,5 +1,5 @@
 Clin Microbiology Parser
-Tools for extracting structured microbiology, organism, and antibiotic susceptibility data from Cerner text reports.
+Tools for extracting structured microbiology, organism, and antibiotic susceptibility data from clinical microbiology reports.
 
 Overview
 The ClinMicro package parses raw clinical microbiology reports and converts them into analysis-ready data frames. The package is designed to process microbiology detailed line listings and extract:
