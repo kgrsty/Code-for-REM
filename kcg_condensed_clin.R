@@ -1,4 +1,4 @@
-#This code is used to extract the information below from a Cerner Condensed line listing
+#This code is used to extract the information below from a Clinical report- Condensed line listing
 #Extract Fields-Name, MRN, Accession, Source, Procedure, Receive Date and Final Isolate
 #organism_list look up table to find applicable organisms
 #specimens with multiple organisms are split into separate columns
