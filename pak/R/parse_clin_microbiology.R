@@ -1,6 +1,6 @@
-#' Parse Cerner Detailed Listing
+#' Parse Clinical report Detailed Listing
 #'
-#' Reads a Cerner microbiology Detailed Listing
+#' Reads a Clinical report Detailed Listing
 #'  extracts and exports culture info (specimen list) and sleeve date (isolate list).
 #'
 #' @param file Path to DAT file.
@@ -9,7 +9,7 @@
 #'
 #' @export
 
-parse_cerner_microbiology <- function(file){
+parse_clin_microbiology <- function(file){
 
   pages <- readLines(file)
 
