@@ -1,6 +1,5 @@
-#parser for culture metadata
-#' @param Detailed Listing DAT file
-#' @export
+#' Splits a report file into individual culture report blocks so each culture can be processed independently.
+#' @keywords internal
 #' @return split patient blocks
 
 split_culture_reports <- function(pages){
