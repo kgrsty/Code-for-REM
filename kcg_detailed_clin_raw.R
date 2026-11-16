@@ -1,6 +1,6 @@
-#This code is for use with Cerner Detailed Listing to extract:
+#This code is for use with Clinical report- Detailed Listing to extract:
 # Name, Accession, Procedure, Source, Collect_date, Organism results, antibiotic susceptibility testing results
-#Strategy:split Cerner document into the following blocks:
+#Strategy:split  document into the following blocks:
 # 1. culture
 # 2. organism
 # 3. antibiotics/susceptibility
