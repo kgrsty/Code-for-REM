@@ -1,4 +1,4 @@
-#' @param Detailed Listing DAT file
+#' creates a dataframe (tibble) with one row per organism found in a culture report.
 #' @export
 #' @return organism by name and accession
 
