@@ -1,8 +1,8 @@
 #R package to generate specimen and isolate lists for REM project using Cerner detailed line listing
 
 #load package and libs
-install.packages("CernerMicro")
-library(CernerMicro)
+install.packages("ClinMicro")
+library(ClinMicro)
 pak::pak("kgrsty/Code-for-REM/pak")
 library(pak)
 library(tidyverse)
