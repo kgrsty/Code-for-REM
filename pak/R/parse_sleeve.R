@@ -1,6 +1,6 @@
 #' @export
 
-parse_cerner_sleeve <- function(file) {
+parse_sleeve <- function(file) {
 
   pages <- readLines(file)
 
