@@ -1,5 +1,5 @@
-
-#' @export
+#' Parses a single antibiotic susceptibility result row into its component fields (e.g., antibiotic, MIC, interpretation).
+#' @keywords internal
 
 
 parse_abx_row <- function(x){
