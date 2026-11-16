@@ -23,7 +23,7 @@ parse_clin_microbiology <- function(file){
 )
   sleeve_df <- purrr::map_dfr(
     culture_blocks,
-    parse_cerner_culture
+    parse_culture
   )
 
   organisms_df <- purrr::map_dfr(
