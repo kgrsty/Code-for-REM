@@ -1,6 +1,5 @@
-#parser for culture metadata
-#' @param Detailed Listing DAT file
-#' @export
+#' Extracts culture-level metadata such as accession number and patient name from a report block.
+#' @keywords internal
 #' @return dataframe with name, accession, procedure, source, collect_date
 
 get_culture_info <- function(block){
