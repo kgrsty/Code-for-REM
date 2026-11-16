@@ -8,7 +8,7 @@ parse_sleeve <- function(file) {
 
     purrr::map_dfr(
     culture_blocks,
-    parse_cerner_culture
+    parse_culture
   )
  
 }
