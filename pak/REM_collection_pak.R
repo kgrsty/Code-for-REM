@@ -13,7 +13,7 @@ devtools::document()
 devtools::load_all()
 
 #generate results dataframe containing list of 3 dataframes- cultures (specimen collection), sleeve dates (isolate collection) and organisms
-results<- parse_cerner_microbiology( "U:/Coding Stuff/REM/detailed_listing/preview_10_13_2026_15_58_00.tmp.DAT")
+results<- parse_clin_microbiology( "U:/Coding Stuff/REM/detailed_listing/preview_10_13_2026_15_58_00.tmp.DAT")
 
 #Specimen Collection List
 #accession, name, source, procdure, collect_date
@@ -62,7 +62,7 @@ write_xlsx(org_columns, "U:/Coding Stuff/REM/detailed_listing/Collection_Lists/O
 
 #returns accession, name, organism, antibiotic, MIC value and interpretation
 #if abx block contains a page break, subsequent organisms convert to NAs
-abx_df <- parse_cerner_abx("U:/Coding Stuff/REM/detailed_listing/preview_10_13_2026_15_58_00.tmp.DAT")
+abx_df <- parse_abx("U:/Coding Stuff/REM/detailed_listing/preview_10_13_2026_15_58_00.tmp.DAT")
 #write excel file to collection list folder
 write_xlsx(abx_df, "U:/Coding Stuff/REM/detailed_listing/Collection_Lists/AbxOrgs_List.xlsx")
 
