@@ -1,7 +1,7 @@
 #' @export
 #' @param Detailed Listing DAT file
 
-parse_cerner_organisms <- function(file) {
+parse_organisms <- function(file) {
 
   pages <- readLines(file)
 
