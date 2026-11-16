@@ -1,4 +1,6 @@
-#' @export
+#' Removes report headers, page breaks, and other non-data lines from an organism section before parsing
+#' @keywords internal
+
 
 clean_org_block <- function (org_block,
                             Accession,
