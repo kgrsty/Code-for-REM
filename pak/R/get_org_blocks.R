@@ -1,4 +1,5 @@
-#' @export
+#' Splits a culture report into organism-specific sections containing susceptibility results for a single organism.
+#' @keywords internal
 
 get_org_blocks <- function(block){
 
