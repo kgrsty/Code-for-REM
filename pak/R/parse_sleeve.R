@@ -1,3 +1,5 @@
+
+#' Reads a sleeve report file and returns a combined dataframe of parsed sleeve culture results.
 #' @export
 
 parse_sleeve <- function(file) {
