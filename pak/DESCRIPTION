@@ -1,12 +1,8 @@
 Package: ClinMicro
 Title: Clinical Microbiology Report Extraction
 Version: 0.0.0.9000
-Authors@R: 
-    person("Kimberly", "Grasty", "kgrasty@upenn.edu", role = c("aut", "cre"))
-Description: 
-Description: Tools for parsing clinical microbiology
-    reports and extracting culture metadata, organisms, and
-    antibiotic susceptibility results into tidy data frames.
+Authors@R: person("Kimberly", "Grasty", "kgrasty@upenn.edu", role = c("aut", "cre"))
+Description: Tools for parsing clinical microbiology reports and extracting culture metadata, organisms, and antibiotic susceptibility results into tidy data frames.
 License: MIT + file LICENSE
 Config/roxygen2/version: 8.1.1
 Encoding: UTF-8
@@ -19,4 +15,5 @@ Imports:
     tidyverse,
     lubridate,
     writexl
+
 
