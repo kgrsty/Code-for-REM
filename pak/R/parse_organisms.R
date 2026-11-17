@@ -1,5 +1,5 @@
 #' Reads a microbiology report file, splits it into individual culture reports, extracts all organisms and their associated accession/patient metadata from each culture, and returns a single combined dataframe with one row per organism.
-#' @keywords internal
+#' @export
 #' @param Detailed Listing DAT file
 
 parse_organisms <- function(file) {
