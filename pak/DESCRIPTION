@@ -21,7 +21,7 @@ Imports:
     purrr,
     stringr,
     tibble,
-    tidyverse,
+    tidyr,
     lubridate,
     writexl
 
