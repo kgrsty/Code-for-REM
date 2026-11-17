@@ -1,4 +1,5 @@
-#' @export
+#' Processes all organism sections within a culture report and combines susceptibility results into one dataframe.
+#' @keywords internal
 
 parse_abx_culture <- function(block){
 
