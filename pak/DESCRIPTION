@@ -1,19 +1,22 @@
 Package: ClinMicro
-Title: Condenses collection list code for REM specimens and isolates
+Title: Clinical Microbiology Report Extraction
 Version: 0.0.0.9000
 Authors@R: 
-    person("Kimberly", "Grasty", , "kgrasty@upenn.edu", role = c("aut"))
-Description: package to generate specimen and isolate list using detailed line listing
-License: use_mit_license("Kimberly Grasty")
+    person("Kimberly", "Grasty", "kgrasty@upenn.edu", role = c("aut", "cre"))
+Description: 
+Description: Tools for parsing clinical microbiology
+    reports and extracting culture metadata, organisms, and
+    antibiotic susceptibility results into tidy data frames.
+License: MIT + file LICENSE
 Config/roxygen2/version: 8.1.1
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-Imports: 
+Imports:
     dplyr,
-    lubridate,
     purrr,
     stringr,
-    tidyr,
+    tibble,
+    tidyverse,
+    lubridate,
     writexl
-
 
