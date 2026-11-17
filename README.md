@@ -1,5 +1,4 @@
-Clin Microbiology Parser
-Tools for extracting structured microbiology, organism, and antibiotic susceptibility data from clinical microbiology reports.
+ClinMicro provides tools for parsing clinical microbiology reports- converting culture results, organism identification, and antimicrobial susceptibility testing into tidy data frames for downstream analysis.
 
 Overview
 The ClinMicro package parses raw clinical microbiology reports and converts them into analysis-ready data frames. The package is designed to process microbiology detailed line listings and extract:
@@ -18,45 +17,62 @@ Features:
 -Preserves accession and patient identifiers
 -Returns tidy data frames suitable for downstream analysis
 
+Installation:
+remotes::install_github(
+  "kgrsty/Code-for-REM",
+  subdir = "pak"
+)
+
 Expected Input:
 Input files should be detailed line listing clinical microbiology reports exported as plain text (.txt).
 
+
+Package Workflow:
+Raw Cerner Report
+       │
+       ▼
+split_culture_reports()
+       │
+ ┌─────┴─────┐
+ ▼           ▼
+parse_culture()   parse_organisms()
+       │
+       ▼
+parse_abx()
+
 Main Functions:
-parse_clin_microbiology(file): Returns a list of structured datasets extracted from a clinical microbiology report.
-parse_clin_microbiology()
-│
-├── parse_organisms()
-├── parse_abx()
-└── parse_sleeve()
+Function	Description:
+  parse_culture()	Extract culture-level metadata for each culture report.
+  parse_organisms()	Extract organisms identified within each culture.
+  parse_abx()	Extract antimicrobial susceptibility testing results.
+  parse_sleeve()	Parse sleeve culture reports and associated dates.
 
-parse_organisms(file): Extracts organism-level findings.
-readLines()
-  ↓
-split_culture_reports()
-  ↓
-get_culture_info()
-  ↓
-extract_organisms()
-  ↓
-Organism Data Frame
+Example: Organisms
+R
+orgs <- parse_organisms(
+"Microbiology_Detailed_Line_Listing.txt"
+)
+head(orgs)
 
-parse_abx(file): Extracts antimicrobial susceptibility testing results.
-readLines()
-  ↓
-split_culture_reports()
-  ↓
-get_culture_info()
-  ↓
-get_org_blocks()
-  ↓
-parse_abx_block()
-  ↓
-Antibiotic Susceptibility Data Frame
+Expected output:
+Accession	Patient_name	Organism
+26-289-08389	Smith, John	Staphylococcus aureus
+26-289-08389	Smith, John	Candida albicans
 
-parse_sleeve(file): Extracts procedure and date-related information from sleeve reports.
+Example: Antibiotic Susceptibilities
+R
+abx <- parse_abx(
+"Microbiology_Detailed_Line_Listing.txt"
+)
+head(abx)
+ 
+Expected output:
+Accession	Organism	Antibiotic	MIC	Interpretation
+26-289-08389	Staphylococcus aureus	Oxacillin	≤0.25	S
+26-289-08389	Staphylococcus aureus	Vancomycin	1	  S
 
-
-
-
+Status:
+Current version: 0.0.0.9000
+Under active development. Function names and outputs may change as additional microbiology report formats are supported.
 
 
