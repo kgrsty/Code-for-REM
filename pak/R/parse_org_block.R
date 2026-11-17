@@ -1,3 +1,6 @@
+#' Parse organism and antibiotic susceptibility rows into blocks
+#' @keywords internal
+
 parse_org_block <- function(org_block,
                             Accession,
                             Patient_name){
