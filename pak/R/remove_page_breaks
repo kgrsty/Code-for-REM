@@ -1,0 +1,9 @@
+#' removal of page break headers
+#' @keywords internal
+
+remove_page_breaks <- function(x) {
+  x[!grepl(
+    "^\\s*Date:|^\\s*Sequence:|^\\s*=+|Microbiology Detailed Line Listing Report|^\\s*Page:",
+    x
+  )]
+}
