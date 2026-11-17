@@ -1,4 +1,5 @@
-#' @export
+#' Extracts sleeve collection, implantation, or related procedure dates from sleeve reports.
+#' @keywords internal
 
 parse_sleeve_dates <- function(block) {
 
