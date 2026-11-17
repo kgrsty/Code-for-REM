@@ -1,4 +1,5 @@
-#' @export
+#' Defines the standard column structure used for organism-level output tables.
+#' @keywords internal
 
 
 org_cols <- function(file) {
