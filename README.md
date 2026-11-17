@@ -27,19 +27,6 @@ Expected Input:
 Input files should be detailed line listing clinical microbiology reports exported as plain text (.txt).
 
 
-Package Workflow:
-Raw Cerner Report
-       │
-       ▼
-split_culture_reports()
-       │
- ┌─────┴─────┐
- ▼           ▼
-parse_culture()   parse_organisms()
-       │
-       ▼
-parse_abx()
-
 Main Functions:
 Function	Description:
   parse_culture()	Extract culture-level metadata for each culture report.
